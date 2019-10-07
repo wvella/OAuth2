@@ -17,6 +17,10 @@ Before we can begin, we'll need to create an *application* on GitHub in order to
 
 The *client ID* is considered public information, and is used to build login URLs, or can be included in the Javascript source code of a web page. The *client secret* must be kept **confidential**. Don't commit this to your git repository!
 
+The application will look similar to this:
+
+[FileSafe:c8578613-72c0-4c6e-9e30-ff483eac4315:github-OAuth-application-settings am.png]
+
 ## Setting Up the Environment
 
 We are going to build a simple PHP website with no external pacakges and no frameworks needed. 
@@ -24,3 +28,9 @@ We are going to build a simple PHP website with no external pacakges and no fram
 From the command line, run `php -S localhost:8000` from inside that folder, and you'll be able to visit http://localhost:8000 in your browser to run your code. All the code is located in the [index.php](https://raw.githubusercontent.com/wvella/OAuth2-Simplified-Client/master/sample-app/index.php) file.
 
 It's important to generate a "state" parameter to use to protect the client. This is a random string that the client generates and stores in the session. We use the state parameter as an extra security check so that when Github sends the user back here with the state in the query string, we can verify that we did actually initiate this request and it's not an attacker making that request.
+
+We build up the authorization URL and then send the user [there](https://github.com/login/oauth/authorize). The URL contains our *public client ID*, the *redirect URL* which we previously registered with Github, the *scope* we're requesting, and the *state* parameter.
+
+At this point, the user will see Github's OAuth authorization prompt.
+
+When the user approves the request, they will be redirected back to our page with `code` and `state` parameters in the request. The next step is to exchange the *authorization code* for an *access token*.
