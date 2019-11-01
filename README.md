@@ -6,6 +6,12 @@ This is my journey on the OAuth2 Spec. I intend to follow Aaron Parecki's book c
 
 This GIT repo is my collection of notes as I have worked through the tutorials in this book. In my day job as an *Integration and API Specialist* we are currently designing our consumer facing APIs around the **OAuth2** and **OpenID** specification and this book has been instrumental in learning the OAuth2 spec.
 
+## Resources
+
+Some really useful resources can be found here;
+
+[OAuth 2.0 and OpenID Connect (in plain English)
+](https://youtu.be/996OiexHze0)
 
 ## OAuth 2.0 Clients
 
